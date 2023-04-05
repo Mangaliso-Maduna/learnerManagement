@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My CV</title>
+    <style>
+        .personal-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .personal-info img {
+            width: 200px;
+            height: 200px;
+            margin-right: 20px;
+        }
+
+        .personal-info div {
+            font-size: 20px;
+        }
+
+        .Academic-info,
+        .work-history-info {
+            margin-top: 30px;
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            text-align: center;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            border: 1px solid black;
+        }
+
+        thead {
+            background-color: lightgray;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tbody tr:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="personal-info">
+        <img src="{{ personal_info.profile_picture.url }}" alt="Profile Picture">
+        <div>
+            <h2>Name: {{ personal_info.name }}</h2>
+            <p>Gender: {{ personal_info.gender }}</p>
+            <p>Race: {{ personal_info.race }}</p>
+            <p>Date of Birth: {{ personal_info.dob }}</p>
+            <p>About Me: {{ personal_info.about }}</p>
+        </div>
+    </div>
+    <div class="Academic-info">
+        <h1>Academic Information</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name Of Institution</th>
+                    <th>Type Of Institution</th>
+                    <th>Qualification Type</th>
+                    <th>Qualification name</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Degree</th>
+                    <th>Achievement Status</th>
+                    <th>Student Number</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for academic in education %}
+                <tr>
+                    <td>{{ education.learning_institute }}</td>
+                    <td>{{ education.learning_institute_type }}</td>
+                    <td>{{ education.qualification_type }}</td>
+                    <td>{{ education.qualification }}</td>
+                    <td>{{ education.start_date }}</td>
+                    <td>{{ education.end_date }}</td>
+                    <td>{{ education.field_of_study }}</td>
+                    <td>{{ education.achievement_status }}</td>
+                    <td>{{ education.student_number }}</td>
+
+                </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+    <div class="work-history-info">
+        <h1>Work history</h1>
+        <table>
+            <thead>
+
+                <tr>
+                    <th>Job Title</th>
+                    <th>Employer</th>
+                    <th>Country</th>
+                    <th>City</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                </tr>
+
+            </thead>
+            <tbody>
+                {% for academic in experience %}
+                <tr>
+                    <td>{{ experience.occupation }}</td>
+                    <td>{{ experience.company }}</td>
+                    <td>{{ experience.country }}</td>
+                    <td>{{ experience.city }}</td>
+                    <td>{{ experience.start_date }}</td>
+                    <td>{{ experience.end_date }}</td>
+                </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

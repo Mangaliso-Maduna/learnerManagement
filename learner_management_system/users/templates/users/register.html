@@ -1,0 +1,23 @@
+{% extends 'learner_management/base.html' %}
+{% block content %}
+    <h1>registration page</h1>
+    <div class="content-section">
+        <form action="" method="post">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom md-4">
+                    join today
+                </legend>
+                {{ form }}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Sign Up </button>
+            </div>
+        </form>
+        <div class="border-top pt-3">
+            <small class="text-muted">
+                Already Have an Account? <a class="ml-2" href="#">Sign in</a>
+            </small>
+        </div>
+    </div>
+{% endblock content %}
