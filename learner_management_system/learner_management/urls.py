@@ -8,7 +8,9 @@ app_name = 'learner_management'
 
 urlpatterns = [
     path('',views.home, name='home'),
-    path('learnercv', views.learner_cv, name='learnercv'),
+    
+    path('summary/learnercv/', RedirectView.as_view(url='/learnercv/', permanent=True)),
+    path('learnercv/', views.learner_cv, name='learnercv'),
     path('login/',auth_views.LoginView.as_view(template_name='learner_management/login.html'),name='login'),
     path('register/',views.register,name='register'),
     path('logout/',auth_views.LogoutView.as_view(template_name='learner_management/login.html'),name='logout'),
