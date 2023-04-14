@@ -104,20 +104,20 @@
             <div class="card mb-4">
                 <div class="card-header">Account Details</div>
                 <div class="card-body">
-                    <form>
+                    <form method="post" action="academicinfo/">
                         {% csrf_token %}
                         <div class="row gx-3 mb-3">
                             <!-- Form Group (first name)-->
                             <div class="col-md-6">
-                                <label class="small mb-1" for="inputFirstName">First name</label>
-                                <input class="form-control" id="inputFirstName" type="text"
-                                    placeholder="Enter your first name" value="Mangaliso">
+                                <label class="small mb-1" for="first_name">First name</label>
+                                <input class="form-control" id="first_name" name="first_name" type="text"
+                                    placeholder="Enter your first name" required>
                             </div>
                             <!-- Form Group (last name)-->
                             <div class="col-md-6">
-                                <label class="small mb-1" for="inputLastName">Last name</label>
-                                <input class="form-control" id="inputLastName" type="text"
-                                    placeholder="Enter your last name" value="Maduna">
+                                <label class="small mb-1" for="last_name">Last name</label>
+                                <input class="form-control" id="last_name" name="last_name" type="text"
+                                    placeholder="Enter your last name">
                             </div>
                         </div>
  
@@ -125,15 +125,14 @@
                         <div class="row gx-3 mb-3">
                             <!-- Form Group (t)-->
                             <div class="col-md-6">
-                                <label class="small mb-1" for="inputBirthday">Birthday</label>
-                                <input class="form-control" id="inputBirthday" type="date" name="birthday"
-                                    placeholder="Enter your birthday" value="06/10/1995">
+                                <label class="small mb-1" for="date_of_birth">Birthday</label>
+                                <input class="form-control" id="date_of_birth" type="date" name="date_of_birth"
+                                    placeholder="Enter your birthday">
                             </div>
                             <!-- Form Group (last name)-->
                             <div class="col-md-6">
-                                <label class="small mb-1" for="idnumber">ID Number</label>
-                                <input class="form-control" id="idnumber" type="text" placeholder="Enter your ID Number"
-                                    value="9501012345678">
+                                <label class="small mb-1" for="id_passport_no">ID Number</label>
+                                <input class="form-control" id="id_passport_no" name="id_passport_no" type="text" placeholder="Enter your ID Number">
                             </div>
                         </div>
 
@@ -141,28 +140,28 @@
                         <div class="row gx-3 mb-3">
                             <!-- Form Group (organization name)-->
                             <div class="col-md-6">
-                                <label class="small mb-1" for="Country">Country</label>
-                                <input class="form-control" id="Country" type="text"
-                                    placeholder="Enter your Country of residence" value="South Africa">
+                                <label class="small mb-1" for="street">Street</label>
+                                <input class="form-control" id="street" name="street" type="text"
+                                    placeholder="house number and street">
                             </div>
                             <!-- Form Group (location)-->
                             <div class="col-md-6">
-                                <label class="small mb-1" for="inputLocation">City</label>
-                                <input class="form-control" id="inputLocation" type="text" placeholder="Enter your city"
+                                <label class="small mb-1" for="city">City</label>
+                                <input class="form-control" id="city" name="city" type="text" placeholder="Enter your city"
                                     value="Johannesburg South, Gauteng">
                             </div>
                         </div>
                         <!-- Form Group (email address)-->
                         <div class="row gx-3 mb-3">
                             <div class="col-md-3">
-                                <label class="small mb-1" for="inputpostalcode">Postal Code</label>
-                                <input class="form-control" id="inputpostalcode" type="text" placeholder="Enter your postal code"
-                                value="2095">
+                                <label class="small mb-1" for="postal_code">Postal Code</label>
+                                <input class="form-control" id="postal_code" name="postal_code" type="text" placeholder="Enter your postal code"
+                                >
                             </div>
                             <div class="col-md-9">
-                                <label class="small mb-1" for="inputEmailAddress">Email address</label>
-                                <input class="form-control" id="inputEmailAddress" type="email" required
-                                placeholder="Enter your email address" value="parism@email.com">
+                                <label class="small mb-1" for="email_address">Email address</label>
+                                <input class="form-control" id="email_address" name="email_address" type="email" required
+                                placeholder="Enter your email address">
                             </div>
                         </div>
 
@@ -170,20 +169,26 @@
                             <!-- Form Group (profession)-->
                             <div class="col-md-6">
                                 <label class="small mb-1" for="profession">Profession</label>
-                                <input class="form-control" id="profession" type="text" name="profession"
-                                    placeholder="Enter your profession" value="Software engineer">
+                                <input class="form-control" id="profession" name="profession" type="text" name="profession"
+                                    placeholder="Enter your profession">
                             </div>
                             <!-- Form Group (phone number)-->
                             <div class="col-md-6">
-                                <label class="small mb-1" for="inputPhone">Phone number</label>
-                                <input class="form-control" id="inputPhone" type="tel"
-                                    placeholder="Enter your phone number" value="555-123-4567">
+                                <label class="small mb-1" for="contact_num">Phone number</label>
+                                <input class="form-control" id="contact_num" name="contact_num" type="tel"
+                                    placeholder="Enter your phone number">
                             </div>
-                            
+                        </div>
+                        <div class="row gx-3 mb-3">
+                            <div class="col-md-12">
+                                <label class="small mb-1" for="personal_summary">Write Summary</label>
+                                <textarea class="form-control" id="personal_summary" name="personal_summary" rows="3"></textarea>
+                            </div>
                         </div>
                         <!-- Save changes button-->
                         <div>
-                            <a href="academicinfo/" class="btn btn-primary" type="button">Next &raquo;</a>
+                            <button class="btn btn-primary" type="submit">Next&raquo;</button>
+                            <!-- <a href="academicinfo/" class="btn btn-primary" type="button">Next &raquo;</a> -->
                         </div>
                         
                     </form>

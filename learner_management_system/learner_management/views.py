@@ -3,6 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.http import HttpResponse
 from django.contrib import messages
 from .forms import UserRegisterForm
+from .models import personal_Information, address, certificates, education, experience, placement, Users
 
 
 # Create your views here.
@@ -24,7 +25,22 @@ def register(request):
     return render(request,'learner_management/register.html',{'form':form})
 
 def personalinfo(request):
-    return render(request,'learner_management/personalinfo.html')
+    if request.method == 'POST':
+        # save personal info data to database
+         personalinfo = personal_Information()
+         personalinfo.first_name = request.POST.get('first_name')
+         personalinfo.last_name = request.POST.get('last_name')
+         personalinfo.date_of_birth = request.POST.get('date_of_birth')
+         personalinfo.id_passport_no = request.POST.get('id_passport_no')
+         personalinfo.email_address = request.POST.get('email_address')
+         personalinfo.contact_num = request.POST.get('contact_num')
+         personalinfo.profession = request.POST.get('profession')
+         personalinfo.profile_pic = request.FILES.get('profile_pic')
+         personalinfo.personal_summary = request.POST.get('personal_summary')
+         personalinfo.save()
+         return redirect('academicinfo')
+    else:
+        return render(request,'learner_management/personalinfo.html')
 
 def academic_info(request):
     return render(request,'learner_management/education.html')
